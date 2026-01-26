@@ -6,6 +6,28 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
+      {/* Branding Logo - Top Left */}
+      <div className="fixed top-0 left-0 z-50 p-6">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2
+            className="text-2xl md:text-3xl font-serif font-bold text-white mb-1"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            東華株式会社
+          </h2>
+          <p
+            className="text-xs md:text-sm font-sans text-[#C5A065] tracking-wider"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            TOUCA GROUP
+          </p>
+        </motion.div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
         {/* Background Image */}
@@ -63,9 +85,16 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <button className="px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold rounded-none hover:bg-[#B8945A] transition-colors duration-300 font-sans tracking-wide">
+            <a
+              href="#contact"
+              className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold rounded-none hover:bg-[#B8945A] transition-colors duration-300 font-sans tracking-wide"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               お問い合わせ
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </section>
@@ -97,7 +126,7 @@ export default function Home() {
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10">
+              <div className="p-8 md:p-10 text-center">
                 <h3
                   className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
                   style={{ fontFamily: "var(--font-serif)" }}
@@ -130,7 +159,7 @@ export default function Home() {
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10">
+              <div className="p-8 md:p-10 text-center">
                 <h3
                   className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
                   style={{ fontFamily: "var(--font-serif)" }}
@@ -163,7 +192,7 @@ export default function Home() {
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10">
+              <div className="p-8 md:p-10 text-center">
                 <h3
                   className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
                   style={{ fontFamily: "var(--font-serif)" }}
@@ -183,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#C5A065]/20 px-6 py-12 md:py-16">
+      <footer id="contact" className="border-t border-[#C5A065]/20 px-6 py-12 md:py-16">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
