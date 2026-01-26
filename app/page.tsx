@@ -1,17 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero.jpg"
+            alt="Hero Background"
+            fill
+            priority
+            quality={100}
+            className="object-cover"
+            unoptimized
+          />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center max-w-4xl mx-auto z-10"
+          className="text-center max-w-4xl mx-auto z-10 relative"
         >
           <motion.p
             initial={{ opacity: 0 }}
@@ -70,20 +86,31 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="border border-[#C5A065]/20 p-8 md:p-10 hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30"
+              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <h3
-                className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                歯科業界M&A
-              </h3>
-              <p
-                className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                技術承継と経営資源の最適化を通じ、地域医療の質的向上と持続可能な発展に貢献します。
-              </p>
+              <div className="relative w-full aspect-video">
+                <Image
+                  src="/images/dental.jpg"
+                  alt="歯科業界M&A"
+                  fill
+                  className="object-cover rounded-t-lg"
+                  unoptimized
+                />
+              </div>
+              <div className="p-8 md:p-10">
+                <h3
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  歯科業界M&A
+                </h3>
+                <p
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  技術承継と経営資源の最適化を通じ、地域医療の質的向上と持続可能な発展に貢献します。
+                </p>
+              </div>
             </motion.div>
 
             {/* Card 2 */}
@@ -92,20 +119,31 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="border border-[#C5A065]/20 p-8 md:p-10 hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30"
+              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <h3
-                className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                介護関連M&A
-              </h3>
-              <p
-                className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                高齢化社会の課題に対し、強固な事業基盤と高品質なサービス体制を構築し、安心できる社会インフラを支えます。
-              </p>
+              <div className="relative w-full aspect-video">
+                <Image
+                  src="/images/care.jpg"
+                  alt="介護関連M&A"
+                  fill
+                  className="object-cover rounded-t-lg"
+                  unoptimized
+                />
+              </div>
+              <div className="p-8 md:p-10">
+                <h3
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  介護関連M&A
+                </h3>
+                <p
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  高齢化社会の課題に対し、強固な事業基盤と高品質なサービス体制を構築し、安心できる社会インフラを支えます。
+                </p>
+              </div>
             </motion.div>
 
             {/* Card 3 */}
@@ -114,20 +152,31 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="border border-[#C5A065]/20 p-8 md:p-10 hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30"
+              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <h3
-                className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                教育機関M&A
-              </h3>
-              <p
-                className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                次世代の可能性を広げる教育環境への投資。グローバルな視点を持つ人材育成を加速させます。
-              </p>
+              <div className="relative w-full aspect-video">
+                <Image
+                  src="/images/school.jpg"
+                  alt="教育機関M&A"
+                  fill
+                  className="object-cover rounded-t-lg"
+                  unoptimized
+                />
+              </div>
+              <div className="p-8 md:p-10">
+                <h3
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  教育機関M&A
+                </h3>
+                <p
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  次世代の可能性を広げる教育環境への投資。グローバルな視点を持つ人材育成を加速させます。
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
