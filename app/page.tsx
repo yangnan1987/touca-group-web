@@ -23,7 +23,7 @@ export default function Home() {
             className="text-xs md:text-sm font-sans text-[#C5A065] tracking-wider"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            TOUCA GROUP
+            TOUCA GROUP Co., Ltd.
           </p>
         </motion.div>
       </div>
@@ -107,9 +107,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           >
-            {/* Card 1 */}
+            {/* Card 1: Dental */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="relative w-full aspect-video">
                 <Image
                   src="/images/dental.jpg"
-                  alt="歯科業界M&A"
+                  alt="歯科医院 事業承継"
                   fill
                   className="object-cover rounded-t-lg"
                   unoptimized
@@ -128,21 +128,21 @@ export default function Home() {
               </div>
               <div className="p-8 md:p-10 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  歯科業界M&A
+                  歯科医院 事業承継
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
-                  技術承継と経営資源の最適化を通じ、地域医療の質的向上と持続可能な発展に貢献します。
+                  地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 2 */}
+            {/* Card 2: Nursing Care */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function Home() {
               <div className="relative w-full aspect-video">
                 <Image
                   src="/images/care.jpg"
-                  alt="介護関連M&A"
+                  alt="介護事業 基盤構築"
                   fill
                   className="object-cover rounded-t-lg"
                   unoptimized
@@ -161,21 +161,21 @@ export default function Home() {
               </div>
               <div className="p-8 md:p-10 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  介護関連M&A
+                  介護事業 基盤構築
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
-                  高齢化社会の課題に対し、強固な事業基盤と高品質なサービス体制を構築し、安心できる社会インフラを支えます。
+                  新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 3 */}
+            {/* Card 3: Education */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ export default function Home() {
               <div className="relative w-full aspect-video">
                 <Image
                   src="/images/school.jpg"
-                  alt="教育機関M&A"
+                  alt="教育機関 業務提携"
                   fill
                   className="object-cover rounded-t-lg"
                   unoptimized
@@ -194,16 +194,49 @@ export default function Home() {
               </div>
               <div className="p-8 md:p-10 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065]"
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  教育機関M&A
+                  教育機関 業務提携
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans"
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
-                  次世代の可能性を広げる教育環境への投資。グローバルな視点を持つ人材育成を加速させます。
+                  グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 4: Real Estate */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
+            >
+              <div className="relative w-full aspect-video">
+                <Image
+                  src="/images/building.jpg"
+                  alt="不動産資産管理"
+                  fill
+                  className="object-cover rounded-t-lg"
+                  unoptimized
+                />
+              </div>
+              <div className="p-8 md:p-10 text-center">
+                <h3
+                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  不動産資産管理
+                </h3>
+                <p
+                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
                 </p>
               </div>
             </motion.div>
@@ -234,14 +267,8 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-center space-y-4 mb-8"
+            className="text-center mb-8"
           >
-            <p
-              className="text-sm md:text-base text-[#E5E5E5] font-sans"
-              style={{ fontFamily: "var(--font-sans)" }}
-            >
-              〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19 リンクスタイル中央ビル2階
-            </p>
             <p
               className="text-sm md:text-base text-[#E5E5E5] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
