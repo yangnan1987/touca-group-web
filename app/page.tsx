@@ -117,12 +117,13 @@ export default function Home() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
+              <div className="relative w-full h-48 bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/dental.jpg"
                   alt="歯科医院 事業承継"
                   fill
                   className="object-contain rounded-t-lg"
+                  style={{ maskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)' }}
                   unoptimized
                 />
               </div>
@@ -150,12 +151,13 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
+              <div className="relative w-full h-48 bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/care.jpg"
                   alt="介護事業 基盤構築"
                   fill
                   className="object-contain rounded-t-lg"
+                  style={{ maskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)' }}
                   unoptimized
                 />
               </div>
@@ -183,12 +185,13 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
+              <div className="relative w-full h-48 bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/school.jpg"
                   alt="教育機関 業務提携"
                   fill
                   className="object-contain rounded-t-lg"
+                  style={{ maskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)' }}
                   unoptimized
                 />
               </div>
@@ -216,12 +219,13 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
+              <div className="relative w-full h-48 bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/building.jpg"
                   alt="不動産資産管理"
                   fill
                   className="object-contain rounded-t-lg"
+                  style={{ maskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)' }}
                   unoptimized
                 />
               </div>
