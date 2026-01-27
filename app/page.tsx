@@ -107,7 +107,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {/* Card 1: Dental */}
             <motion.div
@@ -117,24 +117,24 @@ export default function Home() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full aspect-video">
+              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/dental.jpg"
                   alt="歯科医院 事業承継"
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-contain rounded-t-lg"
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10 text-center">
+              <div className="p-6 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
+                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   歯科医院 事業承継
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
+                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
@@ -150,24 +150,24 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full aspect-video">
+              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/care.jpg"
                   alt="介護事業 基盤構築"
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-contain rounded-t-lg"
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10 text-center">
+              <div className="p-6 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
+                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   介護事業 基盤構築
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
+                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
@@ -183,24 +183,24 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full aspect-video">
+              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/school.jpg"
                   alt="教育機関 業務提携"
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-contain rounded-t-lg"
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10 text-center">
+              <div className="p-6 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
+                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   教育機関 業務提携
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
+                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
@@ -216,24 +216,24 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
             >
-              <div className="relative w-full aspect-video">
+              <div className="relative w-full h-48 flex items-center justify-center bg-[#1E293B]/50 rounded-t-lg">
                 <Image
                   src="/images/building.jpg"
                   alt="不動産資産管理"
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-contain rounded-t-lg"
                   unoptimized
                 />
               </div>
-              <div className="p-8 md:p-10 text-center">
+              <div className="p-6 text-center">
                 <h3
-                  className="text-2xl md:text-3xl font-serif font-bold mb-6 text-[#C5A065] text-center"
+                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   不動産資産管理
                 </h3>
                 <p
-                  className="text-base md:text-lg leading-relaxed text-[#E5E5E5] font-sans text-center"
+                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
