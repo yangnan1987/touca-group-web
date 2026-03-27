@@ -290,7 +290,7 @@ export default function Home() {
               className="text-xs md:text-sm text-[#A0A0A0] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              © 2026 TOUCA GROUP. All Rights Reserved.
+              © 2024 TOUCA GROUP. All Rights Reserved.
             </p>
           </motion.div>
         </div>
