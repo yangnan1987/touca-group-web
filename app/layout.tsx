@@ -15,18 +15,45 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "TOUCA GROUP | 東華株式会社",
-  description: "投資の力で、新たな価値と可能性を創造する。",
+  metadataBase: new URL("https://toucagroup.com"),
+  title: "東華株式会社 | 公式サイト",
+  description:
+    "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。歯科医院事業承継、介護事業基盤構築、教育機関業務提携、不動産資産管理に関する公開情報を掲載しています。",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "東華株式会社 | 公式サイト",
+    description:
+      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。事業領域、更新情報、お問い合わせ窓口などの公開情報を掲載しています。",
+    url: "https://toucagroup.com",
+    siteName: "東華株式会社",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "東華株式会社 公式サイト",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "東華株式会社 | 公式サイト",
+    description:
+      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。公開情報を確認しやすい構成でご案内しています。",
+    images: ["/images/hero.jpg"],
+  },
   robots: {
-    index: false,
-    follow: false,
-    nocache: true,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
-      noimageindex: true,
+      index: true,
+      follow: true,
       "max-snippet": -1,
-      "max-image-preview": "none",
+      "max-image-preview": "large",
       "max-video-preview": -1,
     },
   },

@@ -1,257 +1,367 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
+  const navItems = [
+    { href: "#about", label: "会社案内" },
+    { href: "#policy", label: "方針" },
+    { href: "#business", label: "事業領域" },
+    { href: "#updates", label: "更新情報" },
+    { href: "#faq", label: "よくあるご質問" },
+    { href: "#contact", label: "お問い合わせ" },
+  ];
+
+  const policyItems = [
+    {
+      title: "価値創造",
+      description: "投資の力で、新たな価値と可能性を創造するという姿勢を軸に、各領域で持続性を重視した取り組みを行います。",
+    },
+    {
+      title: "長期視点",
+      description: "短期的な成果だけでなく、地域・関係者・事業基盤の将来性を見据えた中長期の支援を重視します。",
+    },
+    {
+      title: "対話と誠実",
+      description: "関係各所との丁寧な対話を基盤に、公開可能な情報を明確化し、透明性の高い情報発信に努めます。",
+    },
+  ];
+
+  const updateItems = [
+    {
+      date: "2026.03",
+      title: "公式サイト構成の見直し",
+      description: "会社案内・方針・よくあるご質問・更新情報を整理し、公開情報を確認しやすい構成へ更新しました。",
+    },
+    {
+      date: "2026.03",
+      title: "掲載方針の明確化",
+      description: "お問い合わせ窓口と掲載情報の方針を明示し、参照しやすい導線へ整えました。",
+    },
+  ];
+
+  const faqItems = [
+    {
+      question: "どのような領域の相談が可能ですか。",
+      answer:
+        "本サイトで公開している事業領域（歯科医院事業承継、介護事業基盤構築、教育機関業務提携、不動産資産管理）に関するご相談を受け付けています。",
+    },
+    {
+      question: "問い合わせ方法を教えてください。",
+      answer:
+        "ページ下部の公式連絡先よりメールでご連絡ください。内容確認後、必要に応じて担当より返信いたします。",
+    },
+    {
+      question: "このサイトに掲載されていない企業情報はありますか。",
+      answer:
+        "本ページでは公開情報を中心に掲載しています。未掲載事項については、お問い合わせ時に確認可能な範囲でご案内します。",
+    },
+  ];
+
+  const smoothScroll = (target: string) => {
+    const element = document.getElementById(target);
+    if (!element) return;
+    element.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth", block: "start" });
+    element.focus({ preventScroll: true });
+  };
+
+  const transitionBase = (delay = 0): Transition =>
+    shouldReduceMotion ? { duration: 0 } : { delay, duration: 0.8, ease: "easeOut" };
+
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "東華株式会社",
+    alternateName: "TOUCA GROUP Co., Ltd.",
+    url: "https://toucagroup.com",
+    inLanguage: "ja-JP",
+  };
+
   return (
-    <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
-      {/* Branding Logo - Top Left */}
+    <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5] pb-20 lg:pb-0">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-[#C5A065] focus:text-[#0F172A] focus:px-4 focus:py-2"
+      >
+        本文へ移動
+      </a>
+
+      <nav
+        aria-label="主要ナビゲーション"
+        className="fixed top-0 right-0 z-50 hidden lg:block px-8 py-6 bg-[#0F172A]/60 backdrop-blur-sm border-b border-l border-[#C5A065]/20 rounded-bl-lg"
+      >
+        <ul className="flex items-center gap-6">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="text-xs tracking-wider text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScroll(item.href.replace("#", ""));
+                }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav
+        aria-label="モバイルナビゲーション"
+        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#0F172A]/90 backdrop-blur-sm border-t border-[#C5A065]/20"
+      >
+        <ul className="grid grid-cols-3 gap-x-2 gap-y-1 p-3">
+          {navItems.map((item) => (
+            <li key={`mobile-${item.href}`} className="text-center">
+              <a
+                href={item.href}
+                className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScroll(item.href.replace("#", ""));
+                }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <div className="fixed top-0 left-0 z-50 p-6">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h2
-            className="text-2xl md:text-3xl font-serif font-bold text-white mb-1"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={transitionBase()}>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-1" style={{ fontFamily: "var(--font-serif)" }}>
             東華株式会社
           </h2>
-          <p
-            className="text-xs md:text-sm font-sans text-[#C5A065] tracking-wider"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
+          <p className="text-xs md:text-sm font-sans text-[#C5A065] tracking-wider" style={{ fontFamily: "var(--font-sans)" }}>
             TOUCA GROUP Co., Ltd.
           </p>
         </motion.div>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero.jpg"
-            alt="Hero Background"
-            fill
-            priority
-            quality={100}
-            className="object-cover"
-            unoptimized
-          />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center max-w-4xl mx-auto z-10 relative"
-        >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-[#C5A065] text-sm md:text-base tracking-widest mb-6 font-sans"
-          >
-            TOUCA GROUP ASSET MANAGEMENT
-          </motion.p>
-          
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            信念こそが、未来を拓く。
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg md:text-xl lg:text-2xl mb-12 text-[#E5E5E5] font-sans"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            投資の力で、新たな価値と可能性を創造する。
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-          >
-            <a
-              href="#contact"
-              className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold rounded-none hover:bg-[#B8945A] transition-colors duration-300 font-sans tracking-wide"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              お問い合わせ
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Business Section */}
-      <section className="px-6 py-20 md:py-32">
-        <div className="max-w-7xl mx-auto">
+      <main id="main-content" className="outline-none">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+        />
+        <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image src="/images/hero.jpg" alt="東華株式会社のメインビジュアル" fill priority quality={100} className="object-cover" unoptimized />
+            <div className="absolute inset-0 bg-black/50"></div>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            animate={{ opacity: 1, y: 0 }}
+            transition={transitionBase()}
+            className="text-center max-w-4xl mx-auto z-10 relative"
           >
-            {/* Card 1: Dental */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={transitionBase(0.3)} className="text-[#C5A065] text-sm md:text-base tracking-widest mb-6 font-sans">
+              TOUCA GROUP ASSET MANAGEMENT
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={transitionBase(0.4)}
+              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
+              style={{ fontFamily: "var(--font-serif)" }}
             >
-              <div className="relative w-full h-48 flex items-center justify-center">
-                <Image
-                  src="/images/dental.png"
-                  alt="歯科医院 事業承継"
-                  fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]"
-                  unoptimized
-                />
-              </div>
-              <div className="p-6 text-center">
-                <h3
-                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  歯科医院 事業承継
-                </h3>
-                <p
-                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Nursing Care */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
+              信念こそが、未来を拓く。
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={transitionBase(0.6)}
+              className="text-lg md:text-xl lg:text-2xl mb-12 text-[#E5E5E5] font-sans"
+              style={{ fontFamily: "var(--font-sans)" }}
             >
-              <div className="relative w-full h-48 flex items-center justify-center">
-                <Image
-                  src="/images/care.png"
-                  alt="介護事業 基盤構築"
-                  fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]"
-                  unoptimized
-                />
-              </div>
-              <div className="p-6 text-center">
-                <h3
-                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  介護事業 基盤構築
-                </h3>
-                <p
-                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Education */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
-            >
-              <div className="relative w-full h-48 flex items-center justify-center">
-                <Image
-                  src="/images/school.png"
-                  alt="教育機関 業務提携"
-                  fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]"
-                  unoptimized
-                />
-              </div>
-              <div className="p-6 text-center">
-                <h3
-                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  教育機関 業務提携
-                </h3>
-                <p
-                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 4: Real Estate */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg"
-            >
-              <div className="relative w-full h-48 flex items-center justify-center">
-                <Image
-                  src="/images/building.png"
-                  alt="不動産資産管理"
-                  fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]"
-                  unoptimized
-                />
-              </div>
-              <div className="p-6 text-center">
-                <h3
-                  className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  不動産資産管理
-                </h3>
-                <p
-                  className="text-sm leading-snug text-[#E5E5E5] font-sans text-center"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
-                </p>
-              </div>
+              投資の力で、新たな価値と可能性を創造する。
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={transitionBase(0.8)}>
+              <a
+                href="#contact"
+                className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold rounded-none hover:bg-[#B8945A] transition-colors duration-300 font-sans tracking-wide"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScroll("contact");
+                }}
+              >
+                お問い合わせ
+              </a>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer id="contact" className="border-t border-[#C5A065]/20 px-6 py-12 md:py-16">
+        <section id="about" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={transitionBase()}
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            >
+              <div className="lg:col-span-1">
+                <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">会社案内</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                  会社案内
+                </h2>
+              </div>
+              <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
+                <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業グループです。</p>
+                <p>本サイトでは、公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="policy" tabIndex={-1} className="px-6 py-16 md:py-24 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
+              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">方針</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                価値創造の方針
+              </h2>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {policyItems.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={transitionBase(0.1 * index)}
+                  className="border border-[#C5A065]/20 bg-[#1E293B]/30 p-6 rounded-lg"
+                >
+                  <h3 className="text-xl font-serif font-semibold text-[#C5A065] mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[#E5E5E5] font-sans">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="business" tabIndex={-1} className="px-6 py-20 md:py-32 border-y border-[#C5A065]/15 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
+              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">事業領域</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                事業領域
+              </h2>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.2)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+                <div className="relative w-full h-48 flex items-center justify-center">
+                  <Image src="/images/dental.png" alt="歯科医院事業承継のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                    歯科医院 事業承継
+                  </h3>
+                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
+                    地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.4)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+                <div className="relative w-full h-48 flex items-center justify-center">
+                  <Image src="/images/care.png" alt="介護事業基盤構築のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                    介護事業 基盤構築
+                  </h3>
+                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
+                    新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.6)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+                <div className="relative w-full h-48 flex items-center justify-center">
+                  <Image src="/images/school.png" alt="教育機関業務提携のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                    教育機関 業務提携
+                  </h3>
+                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
+                    グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.8)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+                <div className="relative w-full h-48 flex items-center justify-center">
+                  <Image src="/images/building.png" alt="不動産資産管理のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                    不動産資産管理
+                  </h3>
+                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
+                    自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="updates" tabIndex={-1} className="px-6 py-16 md:py-24 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
+              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">更新情報</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                更新情報
+              </h2>
+            </motion.div>
+            <div className="space-y-4">
+              {updateItems.map((item, index) => (
+                <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.1 * index)} className="border border-[#C5A065]/20 bg-[#1E293B]/25 p-6 rounded-lg">
+                  <p className="text-xs tracking-wider text-[#C5A065] mb-2">{item.date}</p>
+                  <h3 className="text-xl font-serif font-semibold mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[#E5E5E5] font-sans">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
+              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">よくあるご質問</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                よくあるご質問
+              </h2>
+            </motion.div>
+            <div className="space-y-4">
+              {faqItems.map((item, index) => (
+                <motion.div key={item.question} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.1 * index)} className="border border-[#C5A065]/20 rounded-lg p-6 bg-[#1E293B]/25">
+                  <h3 className="text-lg md:text-xl font-serif font-semibold text-[#C5A065] mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+                    {item.question}
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-[#E5E5E5] font-sans">{item.answer}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" tabIndex={-1} className="border-t border-[#C5A065]/20 px-6 py-12 md:py-16 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={transitionBase()}
             className="text-center mb-8"
           >
             <p
@@ -266,31 +376,44 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={transitionBase(0.2)}
             className="text-center mb-8"
           >
             <p
               className="text-sm md:text-base text-[#E5E5E5] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
             >
+              公式連絡先：
               <a href="mailto:info@toucagroup.com" className="hover:text-[#C5A065] transition-colors">
                 info@toucagroup.com
               </a>
             </p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3">公式サイト：toucagroup.com</p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
+              本サイトは公開情報をもとに運営・更新しています。
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs md:text-sm">
+              <a href="/privacy-policy" className="text-[#A0A0A0] hover:text-[#C5A065] transition-colors">
+                プライバシーポリシー
+              </a>
+              <a href="/site-policy" className="text-[#A0A0A0] hover:text-[#C5A065] transition-colors">
+                サイト利用方針
+              </a>
+            </div>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={transitionBase(0.4)}
             className="text-center pt-8 border-t border-[#C5A065]/10"
           >
             <p
               className="text-xs md:text-sm text-[#A0A0A0] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              © 2024 TOUCA GROUP. All Rights Reserved.
+              © 2026 東華株式会社
             </p>
           </motion.div>
         </div>
