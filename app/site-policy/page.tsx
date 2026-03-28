@@ -1,15 +1,19 @@
 import Link from "next/link";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 
 export const dynamic = "force-static";
 
 export default function SitePolicyPage() {
   return (
-    <main className="min-h-screen bg-[#0F172A] text-[#F5F5F5] px-6 py-16">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
+      <SiteHeader title="サイト利用方針" backHref="/" backLabel="トップページへ戻る" />
+
+      <main className="max-w-4xl mx-auto px-6 py-16 space-y-8">
         <header className="space-y-4">
           <p className="text-xs tracking-[0.2em] text-[#C5A065]">サイト運営方針</p>
           <h1 className="text-3xl md:text-4xl font-bold">サイト利用方針</h1>
-          <p className="text-sm text-[#E5E5E5]">最終更新日：2026年3月</p>
+          <p className="text-sm text-[#E5E5E5]">最終更新日：2024年</p>
         </header>
 
         <section className="space-y-3 text-sm md:text-base leading-relaxed text-[#E5E5E5]">
@@ -45,7 +49,9 @@ export default function SitePolicyPage() {
             トップページへ戻る
           </Link>
         </div>
-      </div>
-    </main>
+      </main>
+
+      <SiteFooter />
+    </div>
   );
 }

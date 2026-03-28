@@ -2,16 +2,18 @@
 
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const navItems = [
-    { href: "#about", label: "会社案内" },
-    { href: "#policy", label: "方針" },
-    { href: "#business", label: "事業領域" },
-    { href: "#updates", label: "更新情報" },
-    { href: "#faq", label: "よくあるご質問" },
-    { href: "#contact", label: "お問い合わせ" },
+    { href: "#about", label: "会社案内", internal: true },
+    { href: "#policy", label: "方針", internal: true },
+    { href: "#business", label: "事業領域", internal: true },
+    { href: "#updates", label: "更新情報", internal: true },
+    { href: "#faq", label: "よくあるご質問", internal: true },
+    { href: "/news", label: "ニュース", internal: false },
+    { href: "#contact", label: "お問い合わせ", internal: true },
   ];
 
   const policyItems = [
@@ -95,16 +97,22 @@ export default function Home() {
         <ul className="flex items-center gap-6">
           {navItems.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                className="text-xs tracking-wider text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  smoothScroll(item.href.replace("#", ""));
-                }}
-              >
-                {item.label}
-              </a>
+              {item.internal ? (
+                <a
+                  href={item.href}
+                  className="text-xs tracking-wider text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScroll(item.href.replace("#", ""));
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link href={item.href} className="text-xs tracking-wider text-[#E5E5E5] hover:text-[#C5A065] transition-colors">
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -114,19 +122,25 @@ export default function Home() {
         aria-label="モバイルナビゲーション"
         className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#0F172A]/90 backdrop-blur-sm border-t border-[#C5A065]/20"
       >
-        <ul className="grid grid-cols-3 gap-x-2 gap-y-1 p-3">
+        <ul className="grid grid-cols-4 gap-x-2 gap-y-1 p-3">
           {navItems.map((item) => (
             <li key={`mobile-${item.href}`} className="text-center">
-              <a
-                href={item.href}
-                className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  smoothScroll(item.href.replace("#", ""));
-                }}
-              >
-                {item.label}
-              </a>
+              {item.internal ? (
+                <a
+                  href={item.href}
+                  className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScroll(item.href.replace("#", ""));
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link href={item.href} className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors">
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -255,58 +269,70 @@ export default function Home() {
               </h2>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.2)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+              <Link href="/business/dental" className="group block">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.2)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
                 <div className="relative w-full h-48 flex items-center justify-center">
                   <Image src="/images/dental.png" alt="歯科医院事業承継のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
                     歯科医院 事業承継
                   </h3>
                   <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
                     地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
                   </p>
+                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.4)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+              </Link>
+              <Link href="/business/care" className="group block">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.4)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
                 <div className="relative w-full h-48 flex items-center justify-center">
                   <Image src="/images/care.png" alt="介護事業基盤構築のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
                     介護事業 基盤構築
                   </h3>
                   <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
                     新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
                   </p>
+                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.6)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+              </Link>
+              <Link href="/business/education" className="group block">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.6)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
                 <div className="relative w-full h-48 flex items-center justify-center">
                   <Image src="/images/school.png" alt="教育機関業務提携のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
                     教育機関 業務提携
                   </h3>
                   <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
                     グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
                   </p>
+                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.8)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/40 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg">
+              </Link>
+              <Link href="/business/real-estate" className="group block">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.8)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
                 <div className="relative w-full h-48 flex items-center justify-center">
                   <Image src="/images/building.png" alt="不動産資産管理のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center" style={{ fontFamily: "var(--font-serif)" }}>
+                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
                     不動産資産管理
                   </h3>
                   <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
                     自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
                   </p>
+                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
                 </div>
               </motion.div>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -413,7 +439,7 @@ export default function Home() {
               className="text-xs md:text-sm text-[#A0A0A0] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              © 2026 東華株式会社
+              © 2024 東華株式会社
             </p>
           </motion.div>
         </div>
