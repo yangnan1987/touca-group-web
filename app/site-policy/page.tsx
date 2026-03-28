@@ -13,7 +13,8 @@ export default function SitePolicyPage() {
         <header className="space-y-4">
           <p className="text-xs tracking-[0.2em] text-[#C5A065]">サイト運営方針</p>
           <h1 className="text-3xl md:text-4xl font-bold">サイト利用方針</h1>
-          <p className="text-sm text-[#E5E5E5]">最終更新日：2024年</p>
+          <p className="text-sm text-[#E5E5E5]">サイト開設：2025年1月</p>
+          <p className="text-sm text-[#E5E5E5]">最終更新日：2026年3月1日</p>
         </header>
 
         <section className="space-y-3 text-sm md:text-base leading-relaxed text-[#E5E5E5]">

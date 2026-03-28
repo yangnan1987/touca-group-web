@@ -66,6 +66,19 @@ export default function DentalPage() {
           </div>
         </section>
 
+        <section className="border-t border-[#C5A065]/15 pt-12">
+          <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-3">ご相談の流れ</p>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">事業承継のご相談について</h2>
+          <ol className="list-decimal list-inside space-y-3 text-sm text-[#E5E5E5] max-w-3xl leading-relaxed">
+            <li>公式サイト記載の連絡先よりメールでお問い合わせください。</li>
+            <li>内容を確認のうえ、担当よりご連絡いたします。</li>
+            <li>必要に応じてヒアリング・情報提供を経て、個別にご案内いたします。</li>
+          </ol>
+          <p className="mt-6 text-sm text-[#B0B0B0] max-w-3xl leading-relaxed">
+            対応可能な地域・案件の条件は事例により異なります。詳細はお問い合わせの際にご確認ください。承継プロセスの概要は本ページの説明および総括をご参照ください。
+          </p>
+        </section>
+
         {/* トレンド総括 */}
         <section className="border-t border-[#C5A065]/15 pt-12">
           <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-3">総括</p>

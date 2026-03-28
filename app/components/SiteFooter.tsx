@@ -21,9 +21,12 @@ export default function SiteFooter() {
           <Link href="/site-policy" className="hover:text-[#C5A065] transition-colors">
             サイト利用方針
           </Link>
+          <Link href="/updates" className="hover:text-[#C5A065] transition-colors">
+            更新情報
+          </Link>
         </div>
         <div className="pt-4 border-t border-[#C5A065]/10">
-          <p className="text-xs text-[#A0A0A0]">© 2024 東華株式会社</p>
+          <p className="text-xs text-[#A0A0A0]">© 2025–2026 東華株式会社</p>
         </div>
       </div>
     </footer>

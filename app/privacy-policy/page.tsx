@@ -13,13 +13,17 @@ export default function PrivacyPolicyPage() {
         <header className="space-y-4">
           <p className="text-xs tracking-[0.2em] text-[#C5A065]">個人情報保護方針</p>
           <h1 className="text-3xl md:text-4xl font-bold">プライバシーポリシー</h1>
-          <p className="text-sm text-[#E5E5E5]">最終更新日：2024年</p>
+          <p className="text-sm text-[#E5E5E5]">サイト開設：2025年1月</p>
+          <p className="text-sm text-[#E5E5E5]">最終更新日：2025年10月1日</p>
         </header>
 
         <section className="space-y-3 text-sm md:text-base leading-relaxed text-[#E5E5E5]">
           <h2 className="text-xl text-[#C5A065] font-semibold">1. 基本方針</h2>
           <p>
-            東華株式会社（以下「当社」）は、当社公式サイト（toucagroup.com）において取得する情報について、関連法令および本ポリシーに基づき適切に取り扱います。
+            東華株式会社（以下「当社」）は、当社公式サイト（toucagroup.com、2025年1月開設）において取得する情報について、関連法令および本ポリシーに基づき適切に取り扱います。
+          </p>
+          <p>
+            本方針は関係法令の改正等に応じて改定することがあります。改定後の内容は本ページに掲載した時点から効力を生じます。
           </p>
         </section>
 

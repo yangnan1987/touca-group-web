@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://toucagroup.com"),
   title: "東華株式会社 | 公式サイト",
   description:
-    "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。歯科医院事業承継、介護事業基盤構築、教育機関業務提携、不動産資産管理に関する公開情報を掲載しています。",
+    "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです（2025年1月開設）。歯科医院事業承継、介護事業基盤構築、教育機関業務提携、不動産資産管理に関する公開情報を掲載しています。",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "東華株式会社 | 公式サイト",
     description:
-      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。事業領域、更新情報、お問い合わせ窓口などの公開情報を掲載しています。",
+      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです（2025年1月開設）。事業領域、更新情報、お問い合わせ窓口などの公開情報を掲載しています。",
     url: "https://toucagroup.com",
     siteName: "東華株式会社",
     locale: "ja_JP",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "東華株式会社 | 公式サイト",
     description:
-      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです。公開情報を確認しやすい構成でご案内しています。",
+      "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトです（2025年1月開設）。公開情報を確認しやすい構成でご案内しています。",
     images: ["/images/hero.jpg"],
   },
   robots: {

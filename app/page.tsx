@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { updateItems } from "./data/updateItems";
+import { HOME_UPDATES_VISIBLE_COUNT, SITE_OPENED_MONTH_JA, updateItems } from "./data/updateItems";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -13,6 +13,7 @@ export default function Home() {
     { href: "#business", label: "事業領域", internal: true },
     { href: "#updates", label: "更新情報", internal: true },
     { href: "#faq", label: "よくあるご質問", internal: true },
+    { href: "/updates", label: "更新一覧", internal: false },
     { href: "/news", label: "ニュース", internal: false },
     { href: "#contact", label: "お問い合わせ", internal: true },
   ];
@@ -42,7 +43,7 @@ export default function Home() {
     {
       question: "問い合わせ方法を教えてください。",
       answer:
-        "ページ下部の公式連絡先よりメールでご連絡ください。内容確認後、必要に応じて担当より返信いたします。",
+        "ページ下部の公式連絡先よりメールでご連絡ください。本サイトに入力フォームは設けておりません。内容確認後、必要に応じて担当より返信いたします（目安：5営業日以内。内容により前後する場合があります）。",
     },
     {
       question: "このサイトに掲載されていない企業情報はありますか。",
@@ -215,7 +216,8 @@ export default function Home() {
               </div>
               <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
                 <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業グループです。</p>
-                <p>本サイトでは、公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
+                <p>本公式サイトは{SITE_OPENED_MONTH_JA}に開設しています。公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
+                <p>業務の効率化と品質向上のため、IT の活用および AI を含む先端ツールの検討を進めています。</p>
               </div>
             </motion.div>
           </div>
@@ -228,6 +230,9 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
                 価値創造の方針
               </h2>
+              <p className="text-sm text-[#E5E5E5] max-w-3xl mt-4 font-sans leading-relaxed">
+                2026 年度は、各事業領域における持続的な価値創造に加え、グループ一体での情報発信と連携体制の明確化に取り組みます。
+              </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {policyItems.map((item, index) => (
@@ -333,9 +338,16 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
                 更新情報
               </h2>
+              <p className="text-sm text-[#A0A0A0] font-sans mt-3 max-w-2xl">
+                最新の{HOME_UPDATES_VISIBLE_COUNT}件を表示しています。開設は{SITE_OPENED_MONTH_JA}です。一覧は
+                <Link href="/updates" className="text-[#C5A065] hover:text-[#E5C888] mx-1">
+                  更新情報ページ
+                </Link>
+                をご覧ください。
+              </p>
             </motion.div>
             <div className="space-y-4">
-              {updateItems.map((item, index) => (
+              {updateItems.slice(0, HOME_UPDATES_VISIBLE_COUNT).map((item, index) => (
                 <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.1 * index)} className="border border-[#C5A065]/20 bg-[#1E293B]/25 p-6 rounded-lg">
                   <p className="text-xs tracking-wider text-[#C5A065] mb-2">{item.date}</p>
                   <h3 className="text-xl font-serif font-semibold mb-3" style={{ fontFamily: "var(--font-serif)" }}>
@@ -345,6 +357,22 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+            {updateItems.length > HOME_UPDATES_VISIBLE_COUNT && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={transitionBase(0.15)}
+                className="mt-8 text-center"
+              >
+                <Link
+                  href="/updates"
+                  className="inline-block px-8 py-3 border border-[#C5A065]/50 text-[#C5A065] text-sm tracking-wider hover:bg-[#C5A065]/10 hover:border-[#C5A065] transition-colors"
+                >
+                  すべての更新情報を見る（全{updateItems.length}件）
+                </Link>
+              </motion.div>
+            )}
           </div>
         </section>
 
@@ -407,12 +435,18 @@ export default function Home() {
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
               本サイトは公開情報をもとに運営・更新しています。
             </p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3 max-w-xl mx-auto leading-relaxed">
+              メールでのお問い合わせは順次確認し、原則として 5 営業日以内に返信いたします。長期休業等がある場合は本欄にてお知らせいたします。
+            </p>
             <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs md:text-sm">
               <a href="/privacy-policy" className="text-[#A0A0A0] hover:text-[#C5A065] transition-colors">
                 プライバシーポリシー
               </a>
               <a href="/site-policy" className="text-[#A0A0A0] hover:text-[#C5A065] transition-colors">
                 サイト利用方針
+              </a>
+              <a href="/updates" className="text-[#A0A0A0] hover:text-[#C5A065] transition-colors">
+                更新情報
               </a>
             </div>
           </motion.div>
@@ -428,7 +462,7 @@ export default function Home() {
               className="text-xs md:text-sm text-[#A0A0A0] font-sans"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              © 2024 東華株式会社
+              © 2025–2026 東華株式会社
             </p>
           </motion.div>
         </div>

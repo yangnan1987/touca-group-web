@@ -63,6 +63,19 @@ export default function RealEstatePage() {
         </section>
 
         <section className="border-t border-[#C5A065]/15 pt-12">
+          <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-3">窓口・運用方針</p>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4">お問い合わせと公開情報</h2>
+          <div className="space-y-4 text-sm text-[#E5E5E5] max-w-3xl leading-relaxed">
+            <p>
+              不動産資産管理に関するお問い合わせは、公式サイト（トップページ）記載のメール窓口（info@toucagroup.com）にて共通で承ります。
+            </p>
+            <p>
+              投資・運用の基本方針は、収益不動産の自社保有と長期運用です。管理物件に関する個別情報は非公開とする場合がありますが、取り組みの概要は下記「東華株式会社の取り組み」をご参照ください。
+            </p>
+          </div>
+        </section>
+
+        <section className="border-t border-[#C5A065]/15 pt-12">
           <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-3">総括</p>
           <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4">東華株式会社の取り組み</h2>
           <p className="text-[#E5E5E5] leading-relaxed max-w-3xl">
