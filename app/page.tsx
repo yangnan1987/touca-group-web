@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { updateItems } from "./data/updateItems";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -31,18 +32,6 @@ export default function Home() {
     },
   ];
 
-  const updateItems = [
-    {
-      date: "2026.03",
-      title: "公式サイト構成の見直し",
-      description: "会社案内・方針・よくあるご質問・更新情報を整理し、公開情報を確認しやすい構成へ更新しました。",
-    },
-    {
-      date: "2026.03",
-      title: "掲載方針の明確化",
-      description: "お問い合わせ窓口と掲載情報の方針を明示し、参照しやすい導線へ整えました。",
-    },
-  ];
 
   const faqItems = [
     {
@@ -347,7 +336,7 @@ export default function Home() {
             </motion.div>
             <div className="space-y-4">
               {updateItems.map((item, index) => (
-                <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.1 * index)} className="border border-[#C5A065]/20 bg-[#1E293B]/25 p-6 rounded-lg">
+                <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.1 * index)} className="border border-[#C5A065]/20 bg-[#1E293B]/25 p-6 rounded-lg">
                   <p className="text-xs tracking-wider text-[#C5A065] mb-2">{item.date}</p>
                   <h3 className="text-xl font-serif font-semibold mb-3" style={{ fontFamily: "var(--font-serif)" }}>
                     {item.title}
