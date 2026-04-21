@@ -264,68 +264,164 @@ export default function Home() {
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Link href="/business/dental" className="group block">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.2)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
-                <div className="relative w-full h-48 flex items-center justify-center">
-                  <Image src="/images/dental.png" alt="歯科医院事業承継のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
-                    歯科医院 事業承継
-                  </h3>
-                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
-                    地域医療の灯を守るための戦略的パートナーシップ。円滑な承継と経営の持続的発展を支援します。
-                  </p>
-                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={transitionBase(0.2)}
+                  className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
+                >
+                  <div className="p-6 flex flex-col h-full">
+                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
+                    <h3
+                      className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      歯科医院 事業承継
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#CFCFCF] font-sans mb-4" style={{ fontFamily: "var(--font-sans)" }}>
+                      地域医療の継続を見据え、承継と運営の両面から支援します。
+                    </p>
+                    <ul className="text-sm text-[#E5E5E5] leading-relaxed space-y-2 mb-6">
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>承継前の経営・財務の整理</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>承継後の体制構築と改善</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>地域医療の持続性を重視</span>
+                      </li>
+                    </ul>
+                    <div className="mt-auto pt-2 flex justify-end">
+                      <span className="text-sm text-[#C5A065] group-hover:text-[#E6C27A] transition-colors tracking-wide">詳しく見る →</span>
+                    </div>
+                  </div>
+                </motion.div>
               </Link>
               <Link href="/business/care" className="group block">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.4)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
-                <div className="relative w-full h-48 flex items-center justify-center">
-                  <Image src="/images/care.png" alt="介護事業基盤構築のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
-                    介護事業 基盤構築
-                  </h3>
-                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
-                    新規施設の開発および既存事業の再生・再構築。安定的かつ高品質な介護サービスの提供体制を確立します。
-                  </p>
-                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={transitionBase(0.4)}
+                  className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
+                >
+                  <div className="p-6 flex flex-col h-full">
+                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
+                    <h3
+                      className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      介護事業 基盤構築
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#CFCFCF] font-sans mb-4" style={{ fontFamily: "var(--font-sans)" }}>
+                      安定運営と品質向上を両立する、持続可能な基盤づくりを行います。
+                    </p>
+                    <ul className="text-sm text-[#E5E5E5] leading-relaxed space-y-2 mb-6">
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>新規施設の開発・立ち上げ</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>既存事業の再生・再構築</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>人材・ICT活用の体制整備</span>
+                      </li>
+                    </ul>
+                    <div className="mt-auto pt-2 flex justify-end">
+                      <span className="text-sm text-[#C5A065] group-hover:text-[#E6C27A] transition-colors tracking-wide">詳しく見る →</span>
+                    </div>
+                  </div>
+                </motion.div>
               </Link>
               <Link href="/business/education" className="group block">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.6)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
-                <div className="relative w-full h-48 flex items-center justify-center">
-                  <Image src="/images/school.png" alt="教育機関業務提携のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
-                    教育機関 業務提携
-                  </h3>
-                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
-                    グローバル人材の育成を見据えた国境を越える業務提携。教育カリキュラムの共同開発や留学生支援を推進します。
-                  </p>
-                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={transitionBase(0.6)}
+                  className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
+                >
+                  <div className="p-6 flex flex-col h-full">
+                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
+                    <h3
+                      className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      教育機関 業務提携
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#CFCFCF] font-sans mb-4" style={{ fontFamily: "var(--font-sans)" }}>
+                      国境を越えた連携で、学びと就労の接点を広げます。
+                    </p>
+                    <ul className="text-sm text-[#E5E5E5] leading-relaxed space-y-2 mb-6">
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>教育機関間の業務提携支援</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>共同カリキュラムの設計・運用</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>留学生の支援と定着の後押し</span>
+                      </li>
+                    </ul>
+                    <div className="mt-auto pt-2 flex justify-end">
+                      <span className="text-sm text-[#C5A065] group-hover:text-[#E6C27A] transition-colors tracking-wide">詳しく見る →</span>
+                    </div>
+                  </div>
+                </motion.div>
               </Link>
               <Link href="/business/real-estate" className="group block">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase(0.8)} className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full">
-                <div className="relative w-full h-48 flex items-center justify-center">
-                  <Image src="/images/building.png" alt="不動産資産管理のイメージ" fill className="object-contain drop-shadow-[0_0_15px_rgba(197,160,101,0.15)]" unoptimized />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-serif font-bold mb-4 text-[#C5A065] text-center group-hover:text-[#E5C888] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
-                    不動産資産管理
-                  </h3>
-                  <p className="text-sm leading-snug text-[#E5E5E5] font-sans text-center" style={{ fontFamily: "var(--font-sans)" }}>
-                    自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
-                  </p>
-                  <p className="mt-4 text-xs text-[#C5A065]/70 group-hover:text-[#C5A065] transition-colors">詳細を見る →</p>
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={transitionBase(0.8)}
+                  className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
+                >
+                  <div className="p-6 flex flex-col h-full">
+                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
+                    <h3
+                      className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      不動産資産管理
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#CFCFCF] font-sans mb-4" style={{ fontFamily: "var(--font-sans)" }}>
+                      長期視点での運用により、価値とキャッシュフローを積み上げます。
+                    </p>
+                    <ul className="text-sm text-[#E5E5E5] leading-relaxed space-y-2 mb-6">
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>収益不動産の長期運用</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>資産価値の最大化を追求</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#C5A065]/80" />
+                        <span>安定的なCFの創出</span>
+                      </li>
+                    </ul>
+                    <div className="mt-auto pt-2 flex justify-end">
+                      <span className="text-sm text-[#C5A065] group-hover:text-[#E6C27A] transition-colors tracking-wide">詳しく見る →</span>
+                    </div>
+                  </div>
+                </motion.div>
               </Link>
             </motion.div>
           </div>
