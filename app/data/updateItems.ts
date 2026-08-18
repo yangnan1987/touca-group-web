@@ -32,8 +32,8 @@ export const updateItems: UpdateItem[] = [
   {
     id: "2026-01-a",
     date: "2026.01",
-    title: "新年のご挨拶および年間方針の公開",
-    description: "2026 年度の取り組み概要を方針セクションに追記し、グループ各社との協力体制について公開情報を整理しました。",
+    title: "新年のご挨拶および公開情報の更新",
+    description: "2026 年度の取り組み概要について、各事業領域の公開情報を整理しました。",
   },
   {
     id: "2025-12-b",
@@ -80,8 +80,8 @@ export const updateItems: UpdateItem[] = [
   {
     id: "2025-09-a",
     date: "2025.09",
-    title: "グループ会社の事業体制を更新",
-    description: "グループ内の役割分担と事業運営体制について、最新の情報をもとに公開内容を更新しました。",
+    title: "事業運営体制に関する公開情報を更新",
+    description: "各事業領域の役割分担と運営体制について、最新の情報をもとに公開内容を更新しました。",
   },
   {
     id: "2025-08-b",
@@ -177,6 +177,6 @@ export const updateItems: UpdateItem[] = [
     id: "2025-01-a",
     date: "2025.01",
     title: "公式サイトを開設",
-    description: "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトを開設し、事業概要・方針・連絡先情報の公開を開始しました。",
+    description: "東華株式会社（TOUCA GROUP Co., Ltd.）の公式サイトを開設し、事業概要・連絡先情報の公開を開始しました。",
   },
 ];

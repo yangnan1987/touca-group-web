@@ -9,7 +9,6 @@ export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const navItems = [
     { href: "#about", label: "会社案内", internal: true },
-    { href: "#policy", label: "方針", internal: true },
     { href: "#business", label: "事業領域", internal: true },
     { href: "#updates", label: "更新情報", internal: true },
     { href: "#faq", label: "よくあるご質問", internal: true },
@@ -17,22 +16,6 @@ export default function Home() {
     { href: "/news", label: "ニュース", internal: false },
     { href: "#contact", label: "お問い合わせ", internal: true },
   ];
-
-  const policyItems = [
-    {
-      title: "価値創造",
-      description: "投資の力で、新たな価値と可能性を創造するという姿勢を軸に、各領域で持続性を重視した取り組みを行います。",
-    },
-    {
-      title: "長期視点",
-      description: "短期的な成果だけでなく、地域・関係者・事業基盤の将来性を見据えた中長期の支援を重視します。",
-    },
-    {
-      title: "対話と誠実",
-      description: "関係各所との丁寧な対話を基盤に、公開可能な情報を明確化し、透明性の高い情報発信に努めます。",
-    },
-  ];
-
 
   const faqItems = [
     {
@@ -215,42 +198,11 @@ export default function Home() {
                 </h2>
               </div>
               <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
-                <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業グループです。</p>
+                <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業です。</p>
                 <p>本公式サイトは{SITE_OPENED_MONTH_JA}に開設しています。公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
                 <p>業務の効率化と品質向上のため、IT の活用および AI を含む先端ツールの検討を進めています。</p>
               </div>
             </motion.div>
-          </div>
-        </section>
-
-        <section id="policy" tabIndex={-1} className="px-6 py-16 md:py-24 scroll-mt-24">
-          <div className="max-w-7xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
-              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">方針</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
-                価値創造の方針
-              </h2>
-              <p className="text-sm text-[#E5E5E5] max-w-3xl mt-4 font-sans leading-relaxed">
-                2026 年度は、各事業領域における持続的な価値創造に加え、グループ一体での情報発信と連携体制の明確化に取り組みます。
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {policyItems.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={transitionBase(0.1 * index)}
-                  className="border border-[#C5A065]/20 bg-[#1E293B]/30 p-6 rounded-lg"
-                >
-                  <h3 className="text-xl font-serif font-semibold text-[#C5A065] mb-3" style={{ fontFamily: "var(--font-serif)" }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[#E5E5E5] font-sans">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
