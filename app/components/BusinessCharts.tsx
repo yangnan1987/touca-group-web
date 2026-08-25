@@ -31,14 +31,15 @@ ChartJS.register(
 
 const baseOptions = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      labels: { color: "#E5E5E5", font: { size: 12 } },
+      labels: { color: "#E5E5E5", font: { size: 11 } },
     },
   },
   scales: {
-    x: { ticks: { color: "#A0A0A0" }, grid: { color: "rgba(197,160,101,0.1)" } },
-    y: { ticks: { color: "#A0A0A0" }, grid: { color: "rgba(197,160,101,0.1)" } },
+    x: { ticks: { color: "#A0A0A0", font: { size: 10 } }, grid: { color: "rgba(197,160,101,0.1)" } },
+    y: { ticks: { color: "#A0A0A0", font: { size: 10 } }, grid: { color: "rgba(197,160,101,0.1)" } },
   },
 } as const;
 
@@ -51,7 +52,7 @@ function ChartCard({ title, unit, note, children }: { title: string; unit: strin
     <div className="border border-[#C5A065]/20 bg-[#1E293B]/30 rounded-lg p-6">
       <h3 className="text-lg font-serif font-semibold text-[#C5A065] mb-1">{title}</h3>
       <p className="text-xs text-[#A0A0A0] mb-4">単位：{unit}</p>
-      <div className="w-full">{children}</div>
+      <div className="w-full h-56 sm:h-64">{children}</div>
       <p className="text-xs text-[#A0A0A0] mt-4 border-t border-[#C5A065]/10 pt-3">{note}</p>
     </div>
   );
@@ -90,10 +91,11 @@ export default function BusinessCharts({ data }: Props) {
           }}
           options={{
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
               legend: {
                 position: "bottom" as const,
-                labels: { color: "#E5E5E5", font: { size: 11 }, padding: 10 },
+                labels: { color: "#E5E5E5", font: { size: 10 }, padding: 8 },
               },
             },
           }}

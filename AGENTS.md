@@ -42,6 +42,7 @@ npm run gen:qr
 
 ## 最近变更
 
+- **2026-08-24**：手机端适配——首页底部 7 项导航改为顶部汉堡菜单；取消 fixed Logo 遮挡正文；`SiteHeader` 窄屏改为「戻る」；图表固定高度并禁止横向撑开。
 - **2026-08-18**：删除首页「方針」区块；公开页面去掉「企業グループ／グループ体制／グループ企業」等尚未成立的集团表述。隐藏会社案内页 `/c/touca2026cp` 保持原样。英文商号 `TOUCA GROUP Co., Ltd.` 与域名保持不变。
 - **2026-08-05**：News 补充 2026.03.20～08.05 真实行业动态（`app/data/newsData.ts` id 31–63）；来源核对表见 `docs/news-sources-2026-03-to-08.md`（页面不展示链接）。
 - **2026-05-22**：新增隐藏会社案内页 `/c/touca2026cp`（`app/c/touca2026cp/page.tsx`，`metadata.robots = noindex/nofollow`，不写入 sitemap，不从任何页面引用），仅供扫码访问；新增 `scripts/generate-qr.mjs` 与 `npm run gen:qr`，产出 `public/qr/company-profile.{png,svg}` 与仓库根 `company-profile-qr.png`；补齐 `chart.js` / `react-chartjs-2` 到 `dependencies`，并新增 `qrcode` / `@types/qrcode` 到 `devDependencies`。

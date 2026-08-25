@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { HOME_UPDATES_VISIBLE_COUNT, SITE_OPENED_MONTH_JA, updateItems } from ".
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
+  const [menuOpen, setMenuOpen] = useState(false);
   const navItems = [
     { href: "#about", label: "会社案内", internal: true },
     { href: "#business", label: "事業領域", internal: true },
@@ -55,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5] pb-20 lg:pb-0">
+    <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-[#C5A065] focus:text-[#0F172A] focus:px-4 focus:py-2"
@@ -91,35 +93,67 @@ export default function Home() {
         </ul>
       </nav>
 
-      <nav
-        aria-label="モバイルナビゲーション"
-        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#0F172A]/90 backdrop-blur-sm border-t border-[#C5A065]/20"
-      >
-        <ul className="grid grid-cols-4 gap-x-2 gap-y-1 p-3">
-          {navItems.map((item) => (
-            <li key={`mobile-${item.href}`} className="text-center">
-              {item.internal ? (
-                <a
-                  href={item.href}
-                  className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    smoothScroll(item.href.replace("#", ""));
-                  }}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link href={item.href} className="text-[11px] text-[#E5E5E5] hover:text-[#C5A065] transition-colors">
-                  {item.label}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <header className="lg:hidden sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-sm border-b border-[#C5A065]/20 pt-[env(safe-area-inset-top)]">
+        <div className="flex items-center justify-between px-4 py-3">
+          <div>
+            <p className="text-lg font-serif font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
+              東華株式会社
+            </p>
+            <p className="text-[10px] font-sans text-[#C5A065] tracking-wide" style={{ fontFamily: "var(--font-sans)" }}>
+              TOUCA GROUP Co., Ltd.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-panel"
+            aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          </button>
+        </div>
+        {menuOpen && (
+          <nav
+            id="mobile-nav-panel"
+            aria-label="モバイルナビゲーション"
+            className="border-t border-[#C5A065]/20 bg-[#0F172A] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-2"
+          >
+            <ul className="flex flex-col">
+              {navItems.map((item) => (
+                <li key={`mobile-${item.href}`} className="border-b border-[#C5A065]/10">
+                  {item.internal ? (
+                    <a
+                      href={item.href}
+                      className="block py-3 text-sm text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMenuOpen(false);
+                        smoothScroll(item.href.replace("#", ""));
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-3 text-sm text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </header>
 
-      <div className="fixed top-0 left-0 z-50 p-6">
+      <div className="hidden lg:block fixed top-0 left-0 z-50 p-6">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={transitionBase()}>
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-1" style={{ fontFamily: "var(--font-serif)" }}>
             東華株式会社
@@ -146,7 +180,7 @@ export default function Home() {
             transition={transitionBase()}
             className="text-center max-w-4xl mx-auto z-10 relative"
           >
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={transitionBase(0.3)} className="text-[#C5A065] text-sm md:text-base tracking-widest mb-6 font-sans">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={transitionBase(0.3)} className="text-[#C5A065] text-sm md:text-base tracking-wide md:tracking-widest mb-6 font-sans">
               TOUCA GROUP ASSET MANAGEMENT
             </motion.p>
             <motion.h1
@@ -224,7 +258,7 @@ export default function Home() {
                   className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
                 >
                   <div className="p-6 flex flex-col h-full">
-                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <p className="text-[11px] tracking-wide md:tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
                     <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
                     <h3
                       className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
@@ -264,7 +298,7 @@ export default function Home() {
                   className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
                 >
                   <div className="p-6 flex flex-col h-full">
-                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <p className="text-[11px] tracking-wide md:tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
                     <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
                     <h3
                       className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
@@ -304,7 +338,7 @@ export default function Home() {
                   className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
                 >
                   <div className="p-6 flex flex-col h-full">
-                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <p className="text-[11px] tracking-wide md:tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
                     <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
                     <h3
                       className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
@@ -344,7 +378,7 @@ export default function Home() {
                   className="border border-[#C5A065]/20 overflow-hidden hover:border-[#C5A065]/60 transition-colors duration-300 bg-[#1E293B]/30 rounded-lg cursor-pointer h-full"
                 >
                   <div className="p-6 flex flex-col h-full">
-                    <p className="text-[11px] tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
+                    <p className="text-[11px] tracking-wide md:tracking-[0.22em] text-[#C5A065] mb-3">BUSINESS DOMAIN</p>
                     <div className="h-px w-10 bg-[#C5A065]/60 mb-4" />
                     <h3
                       className="text-xl font-serif font-bold mb-2 text-[#C5A065] group-hover:text-[#E5C888] transition-colors"
