@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
@@ -77,12 +78,12 @@ export default function CarePage() {
             東華株式会社は、新規介護施設の立ち上げから既存事業者の経営改善まで、介護事業基盤の強化を総合的に支援します。ICT導入・人材確保・法令対応の三軸で、安定した事業運営と高品質なサービス提供を実現するためのパートナーとなります。
           </p>
           <div className="mt-6">
-            <a
+            <Link
               href="/#contact"
               className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold hover:bg-[#B8945A] transition-colors"
             >
               お問い合わせ
-            </a>
+            </Link>
           </div>
         </section>
 

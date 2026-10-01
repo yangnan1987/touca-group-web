@@ -23,10 +23,23 @@ export function pageMetadata(options: {
       title: fullTitle,
       description: options.description,
       url,
+      siteName: "東華株式会社",
+      locale: "ja_JP",
+      type: "website",
+      images: [
+        {
+          url: "/images/hero.jpg",
+          width: 2752,
+          height: 1536,
+          alt: "東華株式会社 公式サイト",
+        },
+      ],
     },
     twitter: {
+      card: "summary_large_image",
       title: fullTitle,
       description: options.description,
+      images: ["/images/hero.jpg"],
     },
     ...(options.noindex
       ? {

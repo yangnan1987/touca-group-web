@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
@@ -90,12 +91,12 @@ export default function RealEstatePage() {
             東華株式会社は、収益不動産の自社保有・長期運用を通じて安定的なキャッシュフローを創出するとともに、物件の価値向上に継続的に取り組んでいます。物流・住宅・商業施設など多様なアセットクラスに対応し、資産価値の最大化を追求します。
           </p>
           <div className="mt-6">
-            <a
+            <Link
               href="/#contact"
               className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold hover:bg-[#B8945A] transition-colors"
             >
               お問い合わせ
-            </a>
+            </Link>
           </div>
         </section>
 

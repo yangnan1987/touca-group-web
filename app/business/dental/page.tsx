@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
@@ -95,12 +96,12 @@ export default function DentalPage() {
             東華株式会社は、歯科医院の事業承継において、承継前の経営分析から承継後の運営安定化まで一貫してサポートします。地域医療を継続的に提供できる体制の構築を最優先とし、院長・スタッフ・患者のすべてが安心できる承継を実現します。
           </p>
           <div className="mt-6">
-            <a
+            <Link
               href="/#contact"
               className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold hover:bg-[#B8945A] transition-colors"
             >
               お問い合わせ
-            </a>
+            </Link>
           </div>
         </section>
 
