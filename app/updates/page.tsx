@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { SITE_OPENED_MONTH_JA, updateItems } from "../data/updateItems";
+import { pageMetadata } from "../lib/pageMeta";
 
 export const dynamic = "force-static";
 
-export const metadata: Metadata = {
-  title: "更新情報 | 東華株式会社",
-  description: `東華株式会社公式サイトの更新履歴一覧です。本サイトは${SITE_OPENED_MONTH_JA}に開設しました。`,
-  alternates: { canonical: "/updates" },
-};
+export const metadata = pageMetadata({
+  title: "更新情報",
+  description:
+    "東華株式会社公式サイトの更新履歴一覧です。本サイトは2025年1月に開設し、公開情報の見直し内容を時系列で掲載しています。",
+  path: "/updates",
+});
 
 export default function UpdatesPage() {
   return (

@@ -1,9 +1,18 @@
+import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
 import { educationData } from "../../data/businessData";
+import { pageMetadata } from "../../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "教育機関業務提携",
+  description:
+    "東華株式会社による教育機関の業務提携に関する公開ページです。海外と日本の教育機関をつなぐ支援の考え方を掲載しています。",
+  path: "/business/education",
+});
 
 export default function EducationPage() {
   return (
@@ -69,12 +78,12 @@ export default function EducationPage() {
             東華株式会社は、海外教育機関と日本の大学・日本語学校・専門学校との業務提携を仲介・支援します。カリキュラムの共同開発から留学生の生活支援・就職支援まで、グローバル人材の育成を包括的にサポートします。
           </p>
           <div className="mt-6">
-            <a
+            <Link
               href="/#contact"
               className="inline-block px-8 py-4 bg-[#C5A065] text-[#0F172A] font-semibold hover:bg-[#B8945A] transition-colors"
             >
               お問い合わせ
-            </a>
+            </Link>
           </div>
         </section>
 

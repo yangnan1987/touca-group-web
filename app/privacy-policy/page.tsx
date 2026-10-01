@@ -1,8 +1,16 @@
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import { pageMetadata } from "../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "プライバシーポリシー",
+  description:
+    "東華株式会社公式サイトのプライバシーポリシーです。取得する情報、利用目的、お問い合わせ窓口について定めています。",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
