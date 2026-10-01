@@ -503,12 +503,6 @@ export default function Home() {
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3">
               〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19 リンクスタイル中央ビル2階
             </p>
-            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
-              TEL：
-              <a href="tel:050-1129-4618" className="hover:text-[#C5A065] transition-colors">
-                050-1129-4618
-              </a>
-            </p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">公式サイト：toucagroup.com</p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
               本サイトは公開情報をもとに運営・更新しています。

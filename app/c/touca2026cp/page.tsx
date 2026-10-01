@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 export const metadata = pageMetadata({
   title: "会社案内",
   description:
-    "東華株式会社（トウカ）の会社案内です。所在地、電話番号、法人番号などの会社情報を掲載しています。",
+    "東華株式会社（トウカ）の会社案内です。所在地、法人番号などの会社情報を掲載しています。",
   path: "/c/touca2026cp",
   noindex: true,
 });
@@ -16,7 +16,6 @@ const companyOverview: { label: string; value: string }[] = [
   { label: "設立", value: "令和6年9月6日" },
   { label: "資本金", value: "9,500万円" },
   { label: "所在地", value: "〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19　リンクスタイル中央ビル2階" },
-  { label: "電話", value: "050-1129-4618" },
   { label: "法人番号", value: "2120001268465" },
   { label: "インボイス登録番号", value: "T2120001268465" },
   { label: "事業内容", value: "資産管理、投資事業等" },
@@ -385,12 +384,6 @@ export default function CompanyProfileBrochurePage() {
           <div className="space-y-2 text-sm md:text-base text-[#E5E5E5] leading-relaxed">
             <p>〒540-0013</p>
             <p>大阪府大阪市中央区内久宝寺町4-1-19　リンクスタイル中央ビル2階</p>
-            <p>
-              TEL：
-              <a href="tel:050-1129-4618" className="hover:text-[#C5A065] transition-colors">
-                050-1129-4618
-              </a>
-            </p>
           </div>
 
           <div className="mt-8 inline-flex flex-col gap-2 text-sm md:text-base">

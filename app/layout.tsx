@@ -37,7 +37,6 @@ const organizationJsonLd = {
       alternateName: ["トウカ", "TOUCA GROUP Co., Ltd."],
       url: "https://toucagroup.com",
       email: "info@toucagroup.com",
-      telephone: "+81-50-1129-4618",
       vatID: "T2120001268465",
       identifier: [
         {
