@@ -94,6 +94,9 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: ["/images/hero.jpg"],
   },
+  verification: {
+    google: "CwmIb52DZCnYBdk_WPkZeaa7NrrZILJGcFsDmAZJIGk",
+  },
   robots: {
     index: true,
     follow: true,
