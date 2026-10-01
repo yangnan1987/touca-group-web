@@ -2,8 +2,16 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
 import { careData } from "../../data/businessData";
+import { pageMetadata } from "../../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "介護事業基盤構築",
+  description:
+    "東華株式会社による介護事業の基盤構築に関する公開ページです。立ち上げと既存事業の運営改善の考え方を掲載しています。",
+  path: "/business/care",
+});
 
 export default function CarePage() {
   return (

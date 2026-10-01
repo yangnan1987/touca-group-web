@@ -2,8 +2,16 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
 import { dentalData } from "../../data/businessData";
+import { pageMetadata } from "../../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "歯科医院事業承継",
+  description:
+    "東華株式会社による歯科医院の事業承継に関する公開ページです。承継前の整理から承継後の運営まで、考え方を掲載しています。",
+  path: "/business/dental",
+});
 
 export default function DentalPage() {
   return (

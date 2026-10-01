@@ -2,8 +2,16 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
 import { educationData } from "../../data/businessData";
+import { pageMetadata } from "../../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "教育機関業務提携",
+  description:
+    "東華株式会社による教育機関の業務提携に関する公開ページです。海外と日本の教育機関をつなぐ支援の考え方を掲載しています。",
+  path: "/business/education",
+});
 
 export default function EducationPage() {
   return (

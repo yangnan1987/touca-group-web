@@ -1,8 +1,16 @@
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { newsData, type NewsCategory } from "../data/newsData";
+import { pageMetadata } from "../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "ニュース",
+  description:
+    "東華株式会社が掲載するニュース一覧です。日本の不動産、介護、教育、IT・経済分野の市場動向と政策情報をまとめています。",
+  path: "/news",
+});
 
 const categoryColors: Record<NewsCategory, string> = {
   "不動産": "border-[#C5A065]/60 text-[#C5A065]",

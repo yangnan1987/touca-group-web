@@ -47,15 +47,6 @@ export default function Home() {
   const transitionBase = (delay = 0): Transition =>
     shouldReduceMotion ? { duration: 0 } : { delay, duration: 0.8, ease: "easeOut" };
 
-  const websiteStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "東華株式会社",
-    alternateName: "TOUCA GROUP Co., Ltd.",
-    url: "https://toucagroup.com",
-    inLanguage: "ja-JP",
-  };
-
   return (
     <div className="min-h-screen bg-[#0F172A] text-[#F5F5F5]">
       <a
@@ -165,10 +156,6 @@ export default function Home() {
       </div>
 
       <main id="main-content" className="outline-none">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
-        />
         <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image src="/images/hero.jpg" alt="東華株式会社のメインビジュアル" fill priority quality={100} className="object-cover" unoptimized />
@@ -513,7 +500,16 @@ export default function Home() {
                 info@toucagroup.com
               </a>
             </p>
-            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3">公式サイト：toucagroup.com</p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3">
+              〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19 リンクスタイル中央ビル2階
+            </p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
+              TEL：
+              <a href="tel:050-1129-4618" className="hover:text-[#C5A065] transition-colors">
+                050-1129-4618
+              </a>
+            </p>
+            <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">公式サイト：toucagroup.com</p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">
               本サイトは公開情報をもとに運営・更新しています。
             </p>

@@ -2,8 +2,16 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
 import { realEstateData } from "../../data/businessData";
+import { pageMetadata } from "../../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "不動産資産管理",
+  description:
+    "東華株式会社による不動産資産管理の公開ページです。収益不動産の保有と長期運用の考え方を掲載しています。",
+  path: "/business/real-estate",
+});
 
 export default function RealEstatePage() {
   return (

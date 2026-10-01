@@ -1,8 +1,16 @@
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import { pageMetadata } from "../lib/pageMeta";
 
 export const dynamic = "force-static";
+
+export const metadata = pageMetadata({
+  title: "サイト利用方針",
+  description:
+    "東華株式会社公式サイトの利用方針です。掲載情報の目的、禁止事項、免責、お問い合わせ窓口について定めています。",
+  path: "/site-policy",
+});
 
 export default function SitePolicyPage() {
   return (
