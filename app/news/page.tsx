@@ -31,7 +31,7 @@ const categoryBg: Record<NewsCategory, string> = {
 function NewsBody({ text }: { text: string }) {
   const parts = text.split(/(https?:\/\/[^\s）]+)/g);
   return (
-    <p className="text-sm text-[#B0B0B0] leading-relaxed">
+    <p className="text-sm text-[#B0B0B0] leading-relaxed whitespace-pre-line">
       {parts.map((part, index) =>
         part.startsWith("http") ? (
           <a
