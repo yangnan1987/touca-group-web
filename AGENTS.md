@@ -42,6 +42,7 @@ npm run gen:qr
 
 ## 最近变更
 
+- **2026-10-21**：News 补充 2 条ビル賃貸・ビル経営相关的可核实行业动态（`app/data/newsData.ts` id 64–65，日期 2026.10.21）。正文附出典 URL。来源核对表见 `docs/news-sources-2026-10.md`。未改页面结构与各页 metadata。
 - **2026-10-01**：SEO 小修——各公开页独立 title / description / canonical / OGP；根布局加入 Organization・RealEstateAgent JSON-LD（法人番号、发票号、正确地址）和 Google Search Console 验证标记；页脚与隐藏会社案内更正邮编 540-0022→540-0013；404 改为日文且 noindex。未改页面结构与正文叙述。
 - **2026-08-24**：手机端适配——首页底部 7 项导航改为顶部汉堡菜单；取消 fixed Logo 遮挡正文；`SiteHeader` 窄屏改为「戻る」；图表固定高度并禁止横向撑开。
 - **2026-08-18**：删除首页「方針」区块；公开页面去掉「企業グループ／グループ体制／グループ企業」等尚未成立的集团表述。隐藏会社案内页 `/c/touca2026cp` 保持原样。英文商号 `TOUCA GROUP Co., Ltd.` 与域名保持不变。

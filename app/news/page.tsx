@@ -28,6 +28,29 @@ const categoryBg: Record<NewsCategory, string> = {
   "経済": "bg-rose-400/10",
 };
 
+function NewsBody({ text }: { text: string }) {
+  const parts = text.split(/(https?:\/\/[^\s）]+)/g);
+  return (
+    <p className="text-sm text-[#B0B0B0] leading-relaxed">
+      {parts.map((part, index) =>
+        part.startsWith("http") ? (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="break-all text-[#C5A065] underline underline-offset-2 hover:text-[#E5C48A]"
+          >
+            {part}
+          </a>
+        ) : (
+          <span key={index}>{part}</span>
+        )
+      )}
+    </p>
+  );
+}
+
 export default function NewsPage() {
   // newsDataはid降順（最新順）で定義済み
   const sorted = [...newsData].sort((a, b) => b.id - a.id);
@@ -62,7 +85,7 @@ export default function NewsPage() {
               <h2 className="text-base md:text-lg font-serif font-semibold mb-3 leading-snug">
                 {item.title}
               </h2>
-              <p className="text-sm text-[#B0B0B0] leading-relaxed">{item.body}</p>
+              <NewsBody text={item.body} />
             </article>
           ))}
         </div>
