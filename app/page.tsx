@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { NewsCardGrid } from "./components/NewsCard";
+import { newsData } from "./data/newsData";
 import { HOME_UPDATES_VISIBLE_COUNT, SITE_OPENED_MONTH_JA, updateItems } from "./data/updateItems";
 
 export default function Home() {
@@ -397,6 +399,27 @@ export default function Home() {
                 </motion.div>
               </Link>
             </motion.div>
+          </div>
+        </section>
+
+        <section id="news" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="mb-10">
+              <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">NEWS</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                ニュース
+              </h2>
+              <p className="text-sm text-[#A0A0A0] font-sans mt-3 max-w-2xl">最新の6件を表示しています。</p>
+            </motion.div>
+            <NewsCardGrid items={[...newsData].sort((a, b) => b.id - a.id).slice(0, 6)} heading="h3" />
+            <div className="mt-8 text-center">
+              <Link
+                href="/news"
+                className="inline-block px-8 py-3 border border-[#C5A065]/50 text-[#C5A065] text-sm tracking-wider hover:bg-[#C5A065]/10 hover:border-[#C5A065] transition-colors"
+              >
+                すべてのニュースを見る →
+              </Link>
+            </div>
           </div>
         </section>
 
