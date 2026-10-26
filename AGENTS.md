@@ -42,6 +42,7 @@ npm run gen:qr
 
 ## 最近变更
 
+- **2026-10-26**：News id 66 追加大阪ビジネス地区空室率稿（标题与正文按三鬼商事大阪オフィスマーケット原文，日期 2026.10.26、分类 不動産，出典 https://www.e-miki.com/rent/osaka.html）。来源核对表见 `docs/news-sources-2026-10.md`。
 - **2026-10-21**：首页与 `/news` 的新闻改为统一尺寸的可折叠卡片（默认约 3 行摘要，「続きを読む ▼」/「閉じる ▲」）。首页只显示最新 6 条，并链到 `/news`。
 - **2026-10-21**：News id 65 由「既存非住宅の省エネ改修」改为都道府県地価調査稿（标题、正文、出典 URL 与 yangnan1987.github.io `368c21b` 的 `n_20261021_2` 一致，日期 2026.10.21、分类 不動産）。id 64 的都心5区オフィス稿保留。来源核对表见 `docs/news-sources-2026-10.md`。
 - **2026-10-01**：SEO 小修——各公开页独立 title / description / canonical / OGP；根布局加入 Organization・RealEstateAgent JSON-LD（法人番号、发票号、正确地址）和 Google Search Console 验证标记；页脚与隐藏会社案内更正邮编 540-0022→540-0013；404 改为日文且 noindex。未改页面结构与正文叙述。
