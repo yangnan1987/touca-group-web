@@ -42,6 +42,7 @@ npm run gen:qr
 
 ## 最近变更
 
+- **2026-11-23**：News id 70 追加都心5区オフィス10月空室率稿（标题与正文仅采用三鬼商事东京オフィスマーケット给定事实，日期 2026.11.23、分类 不動産，出典 https://www.e-miki.com/rent/tokyo.html）。来源核对表见 `docs/news-sources-2026-11.md`。
 - **2026-11-16**：News id 69 追加大阪ビジネス地区10月空室率稿（标题与正文仅采用三鬼商事大阪オフィスマーケット给定事实，日期 2026.11.16、分类 不動産，出典 https://e-miki.com/rent/osaka.html）。来源核对表见 `docs/news-sources-2026-11.md`。
 - **2026-11-09**：News 新增介護「経営情報報告の受付再開」（`app/data/newsData.ts` id 68、2026.10.26／介護保险最新信息 Vol.1546）。来源记入 `docs/news-sources-2026-11.md`。
 - **2026-10-26**：News id 66 追加大阪ビジネス地区空室率稿（标题与正文按三鬼商事大阪オフィスマーケット原文，日期 2026.10.26、分类 不動産，出典 https://www.e-miki.com/rent/osaka.html）。来源核对表见 `docs/news-sources-2026-10.md`。
