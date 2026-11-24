@@ -14,7 +14,7 @@ export default function SiteFooter() {
           </a>
         </p>
         <p className="text-xs text-[#A0A0A0]">
-          〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19 リンクスタイル中央ビル2階
+          〒540-0013 大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階
         </p>
         <p className="text-xs text-[#A0A0A0]">公式サイト：toucagroup.com</p>
         <div className="flex flex-wrap justify-center gap-4 text-xs text-[#A0A0A0]">
