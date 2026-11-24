@@ -42,6 +42,7 @@ npm run gen:qr
 
 ## 最近变更
 
+- **2026-11-24**：首页 `#greeting` ご挨拶正文整段替换为已确认的代表问候（投资公司定位、事业范围、IT/AI、署名右对齐）。首页事业领域「不動産資産管理」卡片与 `/business/real-estate` 复用 `companyProfile.ts` 的保有物件与モデルハウス列表，格式与会社概要页相同。会社概要页、隐藏页与 JSON-LD 未改，未加入电话号码。
 - **2026-11-24**：Next.js 16.1.4 → 16.4.6、eslint-config-next 同步升级。GitHub Pages 构建在 Google Fonts 返回无扩展名 `/l/font?kit=` 地址时，Turbopack 会报 `next/font/google queries have exactly one entry`；16.4.3 起已修复。`app/layout.tsx` 的 Noto Sans JP / Noto Serif JP 调用未改。
 - **2026-11-24**：`/company` 保有物件改为四行明细（阶数、再建筑、クライアント・ヴィラ与面积），其下新增「モデルハウス」一行「大阪府吹田市古江台　３棟」。表、首页、隐藏页与 JSON-LD 未改。
 - **2026-11-24**：`/company` 保有物件中，吹田市古江台两行（3丁目住宅1棟、6丁目住宅3棟）合并为一行「吹田市古江台　モデルハウス4棟」。首页问候里的「マンション・テナントビル・住宅」未改。

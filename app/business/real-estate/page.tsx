@@ -2,6 +2,7 @@ import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import BusinessCharts from "../../components/BusinessCharts";
+import { HeldPropertyLists } from "../../components/HeldPropertyLists";
 import { realEstateData } from "../../data/businessData";
 import { pageMetadata } from "../../lib/pageMeta";
 
@@ -28,6 +29,8 @@ export default function RealEstatePage() {
             自社保有による収益不動産の長期運用。資産価値の最大化と安定的なキャッシュフローの創出を追求します。
           </p>
         </section>
+
+        <HeldPropertyLists />
 
         <section className="border-t border-[#C5A065]/15 pt-12">
           <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-3">市場現状</p>
