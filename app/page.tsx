@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { flushSync } from "react-dom";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +24,8 @@ export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
   const navItems = [
-    { href: "#about", label: "会社案内", internal: true },
+    { href: "#greeting", label: "ご挨拶", internal: true },
+    { href: "#company", label: "会社概要", internal: true },
     { href: "#business", label: "事業領域", internal: true },
     { href: "#updates", label: "更新情報", internal: true },
     { href: "#faq", label: "よくあるご質問", internal: true },
@@ -135,8 +137,9 @@ export default function Home() {
                       className="block py-3 text-sm text-[#E5E5E5] hover:text-[#C5A065] transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
-                        setMenuOpen(false);
-                        smoothScroll(item.href.replace("#", ""));
+                        const target = item.href.replace("#", "");
+                        flushSync(() => setMenuOpen(false));
+                        smoothScroll(target);
                       }}
                     >
                       {item.label}
@@ -216,7 +219,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="about" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
+        <section id="greeting" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -226,35 +229,77 @@ export default function Home() {
               className="grid grid-cols-1 lg:grid-cols-3 gap-8"
             >
               <div className="lg:col-span-1">
-                <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">会社案内</p>
+                <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">ご挨拶</p>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
-                  会社案内
+                  ご挨拶
                 </h2>
               </div>
               <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
-                <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業です。</p>
-                <p>本公式サイトは{SITE_OPENED_MONTH_JA}に開設しています。公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
-                <p>業務の効率化と品質向上のため、IT の活用および AI を含む先端ツールの検討を進めています。</p>
-                <div className="pt-8">
-                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-                    会社概要
-                  </h3>
-                  <dl className="border-t border-[#C5A065]/20">
-                    {companyOverview.map((row) => (
-                      <div
-                        key={row.label}
-                        className="grid grid-cols-[6.75rem_minmax(0,1fr)] sm:grid-cols-[9rem_minmax(0,1fr)] gap-x-3 sm:gap-x-6 py-3.5 border-b border-[#C5A065]/20"
-                      >
-                        <dt className="text-xs sm:text-sm tracking-[0.12em] sm:tracking-[0.18em] text-[#C5A065] leading-relaxed">
-                          {row.label}
-                        </dt>
-                        <dd className="text-sm md:text-base text-[#E5E5E5] leading-relaxed break-words min-w-0">
-                          {row.value}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
+                <p>平素は格別のお引き立てを賜り、厚く御礼申し上げます。</p>
+                <p>
+                  東華株式会社は、大阪府内で収益不動産の保有・運営に取り組んでおります。地域の皆さま、ならびに入居者・テナントの皆さまとの関係を大切にし、各物件の運営に努めてまいります。
+                </p>
+                <p>これとあわせ、事業基盤整備を着実に進めております。</p>
+                <p>現在保有している物件の所在区域と種別は、次のとおりです。</p>
+                <ul className="space-y-2 pt-1">
+                  <li className="flex gap-2">
+                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
+                    <span>大阪市浪速区元町3丁目　マンション1棟</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
+                    <span>大阪市中央区道頓堀2丁目　テナントビル1棟</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
+                    <span>大阪市中央区難波2丁目　テナントビル1棟（再建築予定）</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
+                    <span>吹田市古江台3丁目　住宅1棟</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
+                    <span>吹田市古江台6丁目　住宅3棟</span>
+                  </li>
+                </ul>
+                <p className="pt-6 text-white tracking-wide">東華株式会社 代表取締役 宋 超</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="company" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={transitionBase()}
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            >
+              <div className="lg:col-span-1">
+                <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">会社概要</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
+                  会社概要
+                </h2>
+              </div>
+              <div className="lg:col-span-2 min-w-0">
+                <dl className="border-t border-[#C5A065]/20">
+                  {companyOverview.map((row) => (
+                    <div
+                      key={row.label}
+                      className="grid grid-cols-[6.75rem_minmax(0,1fr)] sm:grid-cols-[9rem_minmax(0,1fr)] gap-x-3 sm:gap-x-6 py-3.5 border-b border-[#C5A065]/20"
+                    >
+                      <dt className="text-xs sm:text-sm tracking-[0.12em] sm:tracking-[0.18em] text-[#C5A065] leading-relaxed">
+                        {row.label}
+                      </dt>
+                      <dd className="text-sm md:text-base text-[#E5E5E5] leading-relaxed break-words min-w-0">
+                        {row.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </motion.div>
           </div>
