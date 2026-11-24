@@ -55,6 +55,8 @@ const showrooms: { name: string; area: string }[] = [
   { name: "東京ショールーム", area: "東京都文京区" },
   { name: "名古屋ショールーム", area: "名古屋市中村区" },
   { name: "福岡ショールーム", area: "福岡県糸島市" },
+  { name: "青森ショールーム", area: "青森県青森市" },
+  { name: "沖縄ショールーム", area: "沖縄県宜野湾市" },
 ];
 
 export default function CompanyProfileBrochurePage() {
