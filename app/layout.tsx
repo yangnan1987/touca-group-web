@@ -37,11 +37,7 @@ const organizationJsonLd = {
       alternateName: ["トウカ", "TOUCA GROUP Co., Ltd."],
       url: "https://toucagroup.com",
       email: "info@toucagroup.com",
-      founder: {
-        "@type": "Person",
-        name: "宋 超",
-      },
-      foundingDate: "2024-09",
+      foundingDate: "2024-09-06",
       vatID: "T2120001268465",
       identifier: [
         {

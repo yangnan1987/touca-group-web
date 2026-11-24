@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 const companyOverview: { label: string; value: string }[] = [
   { label: "会社名", value: "東華株式会社（TOUCA GROUP Co., Ltd.）" },
   { label: "代表取締役", value: "宋 超" },
-  { label: "設立", value: "2024年9月" },
+  { label: "設立", value: "令和6年9月6日" },
   { label: "資本金", value: "9,500万円" },
   { label: "所在地", value: "〒540-0013 大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階" },
   { label: "法人番号", value: "2120001268465" },
