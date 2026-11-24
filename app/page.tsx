@@ -5,6 +5,7 @@ import { flushSync } from "react-dom";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { HeldPropertyLists } from "./components/HeldPropertyLists";
 import { NewsCardGrid } from "./components/NewsCard";
 import { COMPANY_ADDRESS } from "./data/companyProfile";
 import { newsData } from "./data/newsData";
@@ -232,20 +233,17 @@ export default function Home() {
               <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
                 <p>平素は格別のお引き立てを賜り、厚く御礼申し上げます。</p>
                 <p>
-                  東華株式会社は、2024年9月の設立以来、大阪市および吹田市において、マンション・テナントビル・住宅の収益不動産を保有し、運営しております。
+                  東華株式会社は、2024年9月に設立した投資会社です。「信念こそが、未来を拓く。」を理念に、投資の力で新たな価値と可能性を創造することを目指しております。
                 </p>
                 <p>
-                  地域の皆さま、入居者およびテナントの皆さまとの関係を大切にしております。誠実な運営により、安心して長くご利用いただける環境をつくり、物件の価値の維持・向上に努めてまいります。
+                  当社は、収益不動産への長期投資を事業の基盤としながら、歯科医院の事業承継、介護事業の基盤構築、教育機関との業務提携など、社会に必要とされる分野へ投資と経営支援を広げております。目先の利益にとらわれず、長期的な視点で事業と資産の価値を育てていくことが、当社の基本姿勢です。
                 </p>
-                <p>大阪市難波のテナントビルについては、再建築を予定しております。</p>
+                <p>また、ITおよびAIを含むツールを積極的に活用し、意思決定のスピードと経営の質を高めてまいります。</p>
                 <p>
-                  これとあわせ、事業基盤整備を進めております。業務の効率化と品質向上のため、ITおよびAIを含むツールの活用を検討しており、本公式サイトは2025年1月に開設しております。
-                </p>
-                <p>
-                  保有物件の概要は<Link href="/company" className="text-[#C5A065] hover:text-[#E5C888]">会社概要ページ</Link>をご覧ください。
+                  投資先の皆さま、パートナーの皆さまとの信頼関係を何より大切にし、誠実な姿勢で共に成長していける会社でありたいと考えております。
                 </p>
                 <p>今後ともご指導ご鞭撻を賜りますよう、お願い申し上げます。</p>
-                <p className="pt-6 text-white tracking-wide">東華株式会社 代表取締役 宋 超</p>
+                <p className="pt-6 text-right text-white tracking-wide">東華株式会社　代表取締役　宋 超</p>
               </div>
             </motion.div>
           </div>
@@ -259,7 +257,7 @@ export default function Home() {
                 事業領域
               </h2>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={transitionBase()} className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Link href="/business/dental" className="group block">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -380,7 +378,9 @@ export default function Home() {
                   </div>
                 </motion.div>
               </Link>
-              <Link href="/business/real-estate" className="group block">
+            </motion.div>
+            <div className="mt-6">
+              <Link href="/business/real-estate" className="group block min-w-0">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -414,13 +414,14 @@ export default function Home() {
                         <span>安定的なCFの創出</span>
                       </li>
                     </ul>
+                    <HeldPropertyLists headingLevel="h4" />
                     <div className="mt-auto pt-2 flex justify-end">
                       <span className="text-sm text-[#C5A065] group-hover:text-[#E6C27A] transition-colors tracking-wide">詳しく見る →</span>
                     </div>
                   </div>
                 </motion.div>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </section>
 
