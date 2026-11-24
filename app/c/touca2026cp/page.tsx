@@ -12,10 +12,10 @@ export const metadata = pageMetadata({
 
 const companyOverview: { label: string; value: string }[] = [
   { label: "会社名", value: "東華株式会社（TOUCA GROUP Co., Ltd.）" },
-  { label: "代表取締役", value: "宋　超" },
+  { label: "代表取締役", value: "宋 超" },
   { label: "設立", value: "令和6年9月6日" },
   { label: "資本金", value: "9,500万円" },
-  { label: "所在地", value: "〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19　リンクスタイル中央ビル2階" },
+  { label: "所在地", value: "〒540-0013 大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階" },
   { label: "法人番号", value: "2120001268465" },
   { label: "インボイス登録番号", value: "T2120001268465" },
   { label: "事業内容", value: "資産管理、投資事業等" },
@@ -148,7 +148,7 @@ export default function CompanyProfileBrochurePage() {
               className="text-xl md:text-2xl font-serif font-semibold text-white"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              宋　超
+              宋 超
             </span>
           </div>
         </section>
@@ -383,7 +383,7 @@ export default function CompanyProfileBrochurePage() {
 
           <div className="space-y-2 text-sm md:text-base text-[#E5E5E5] leading-relaxed">
             <p>〒540-0013</p>
-            <p>大阪府大阪市中央区内久宝寺町4-1-19　リンクスタイル中央ビル2階</p>
+            <p>大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階</p>
           </div>
 
           <div className="mt-8 inline-flex flex-col gap-2 text-sm md:text-base">

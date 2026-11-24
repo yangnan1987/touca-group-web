@@ -8,6 +8,17 @@ import { NewsCardGrid } from "./components/NewsCard";
 import { newsData } from "./data/newsData";
 import { HOME_UPDATES_VISIBLE_COUNT, SITE_OPENED_MONTH_JA, updateItems } from "./data/updateItems";
 
+const COMPANY_ADDRESS =
+  "〒540-0013 大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階";
+
+const companyOverview = [
+  { label: "商号", value: "東華株式会社" },
+  { label: "代表取締役", value: "宋 超" },
+  { label: "設立", value: "2024年9月" },
+  { label: "資本金", value: "9,500万円" },
+  { label: "所在地", value: COMPANY_ADDRESS },
+] as const;
+
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -224,6 +235,26 @@ export default function Home() {
                 <p>東華株式会社（TOUCA GROUP Co., Ltd.）は、投資と事業基盤整備を通じて新たな価値と可能性の創造を目指す企業です。</p>
                 <p>本公式サイトは{SITE_OPENED_MONTH_JA}に開設しています。公開中の事業領域と連絡窓口を中心に、確認可能な情報を整理して掲載しています。記載内容は継続的に見直し、運営情報の明瞭化に努めています。</p>
                 <p>業務の効率化と品質向上のため、IT の活用および AI を含む先端ツールの検討を進めています。</p>
+                <div className="pt-8">
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+                    会社概要
+                  </h3>
+                  <dl className="border-t border-[#C5A065]/20">
+                    {companyOverview.map((row) => (
+                      <div
+                        key={row.label}
+                        className="grid grid-cols-[6.75rem_minmax(0,1fr)] sm:grid-cols-[9rem_minmax(0,1fr)] gap-x-3 sm:gap-x-6 py-3.5 border-b border-[#C5A065]/20"
+                      >
+                        <dt className="text-xs sm:text-sm tracking-[0.12em] sm:tracking-[0.18em] text-[#C5A065] leading-relaxed">
+                          {row.label}
+                        </dt>
+                        <dd className="text-sm md:text-base text-[#E5E5E5] leading-relaxed break-words min-w-0">
+                          {row.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -524,7 +555,7 @@ export default function Home() {
               </a>
             </p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-3">
-              〒540-0013 大阪府大阪市中央区内久宝寺町4-1-19 リンクスタイル中央ビル2階
+              {COMPANY_ADDRESS}
             </p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">公式サイト：toucagroup.com</p>
             <p className="text-xs md:text-sm text-[#A0A0A0] font-sans mt-2">

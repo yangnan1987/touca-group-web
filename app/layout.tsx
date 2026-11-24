@@ -37,6 +37,7 @@ const organizationJsonLd = {
       alternateName: ["トウカ", "TOUCA GROUP Co., Ltd."],
       url: "https://toucagroup.com",
       email: "info@toucagroup.com",
+      foundingDate: "2024-09-06",
       vatID: "T2120001268465",
       identifier: [
         {
@@ -56,7 +57,7 @@ const organizationJsonLd = {
         addressCountry: "JP",
         addressRegion: "大阪府",
         addressLocality: "大阪市中央区",
-        streetAddress: "内久宝寺町4-1-19 リンクスタイル中央ビル2階",
+        streetAddress: "内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階",
       },
     },
   ],
