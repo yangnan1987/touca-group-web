@@ -1,38 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { NewsCardGrid } from "./components/NewsCard";
+import { COMPANY_ADDRESS } from "./data/companyProfile";
 import { newsData } from "./data/newsData";
+import { siteNavItems } from "./data/siteNav";
 import { HOME_UPDATES_VISIBLE_COUNT, SITE_OPENED_MONTH_JA, updateItems } from "./data/updateItems";
-
-const COMPANY_ADDRESS =
-  "〒540-0013 大阪府大阪市中央区内久宝寺町四丁目1番19号 リンクスタイル中央ビル2階";
-
-const companyOverview = [
-  { label: "商号", value: "東華株式会社" },
-  { label: "代表取締役", value: "宋 超" },
-  { label: "設立", value: "2024年9月" },
-  { label: "資本金", value: "9,500万円" },
-  { label: "所在地", value: COMPANY_ADDRESS },
-] as const;
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = [
-    { href: "#greeting", label: "ご挨拶", internal: true },
-    { href: "#company", label: "会社概要", internal: true },
-    { href: "#business", label: "事業領域", internal: true },
-    { href: "#updates", label: "更新情報", internal: true },
-    { href: "#faq", label: "よくあるご質問", internal: true },
-    { href: "/updates", label: "更新一覧", internal: false },
-    { href: "/news", label: "ニュース", internal: false },
-    { href: "#contact", label: "お問い合わせ", internal: true },
-  ];
+  const navItems = siteNavItems(true);
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const id = window.location.hash.replace("#", "");
+      if (!id) return;
+      const element = document.getElementById(id);
+      if (!element) return;
+      element.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth", block: "start" });
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, [shouldReduceMotion]);
 
   const faqItems = [
     {
@@ -237,69 +232,20 @@ export default function Home() {
               <div className="lg:col-span-2 space-y-4 text-[#E5E5E5] font-sans leading-relaxed">
                 <p>平素は格別のお引き立てを賜り、厚く御礼申し上げます。</p>
                 <p>
-                  東華株式会社は、大阪府内で収益不動産の保有・運営に取り組んでおります。地域の皆さま、ならびに入居者・テナントの皆さまとの関係を大切にし、各物件の運営に努めてまいります。
+                  東華株式会社は、2024年9月の設立以来、大阪市および吹田市において、マンション・テナントビル・住宅の収益不動産を保有し、運営しております。
                 </p>
-                <p>これとあわせ、事業基盤整備を着実に進めております。</p>
-                <p>現在保有している物件の所在区域と種別は、次のとおりです。</p>
-                <ul className="space-y-2 pt-1">
-                  <li className="flex gap-2">
-                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
-                    <span>大阪市浪速区元町3丁目　マンション1棟</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
-                    <span>大阪市中央区道頓堀2丁目　テナントビル1棟</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
-                    <span>大阪市中央区難波2丁目　テナントビル1棟（再建築予定）</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
-                    <span>吹田市古江台3丁目　住宅1棟</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A065]/80" />
-                    <span>吹田市古江台6丁目　住宅3棟</span>
-                  </li>
-                </ul>
+                <p>
+                  地域の皆さま、入居者およびテナントの皆さまとの関係を大切にしております。誠実な運営により、安心して長くご利用いただける環境をつくり、物件の価値の維持・向上に努めてまいります。
+                </p>
+                <p>大阪市難波のテナントビルについては、再建築を予定しております。</p>
+                <p>
+                  これとあわせ、事業基盤整備を進めております。業務の効率化と品質向上のため、ITおよびAIを含むツールの活用を検討しており、本公式サイトは2025年1月に開設しております。
+                </p>
+                <p>
+                  保有物件の概要は<Link href="/company" className="text-[#C5A065] hover:text-[#E5C888]">会社概要ページ</Link>をご覧ください。
+                </p>
+                <p>今後ともご指導ご鞭撻を賜りますよう、お願い申し上げます。</p>
                 <p className="pt-6 text-white tracking-wide">東華株式会社 代表取締役 宋 超</p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="company" tabIndex={-1} className="px-6 py-16 md:py-24 border-t border-[#C5A065]/15 scroll-mt-24">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={transitionBase()}
-              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-            >
-              <div className="lg:col-span-1">
-                <p className="text-xs tracking-[0.2em] text-[#C5A065] mb-4">会社概要</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold" style={{ fontFamily: "var(--font-serif)" }}>
-                  会社概要
-                </h2>
-              </div>
-              <div className="lg:col-span-2 min-w-0">
-                <dl className="border-t border-[#C5A065]/20">
-                  {companyOverview.map((row) => (
-                    <div
-                      key={row.label}
-                      className="grid grid-cols-[6.75rem_minmax(0,1fr)] sm:grid-cols-[9rem_minmax(0,1fr)] gap-x-3 sm:gap-x-6 py-3.5 border-b border-[#C5A065]/20"
-                    >
-                      <dt className="text-xs sm:text-sm tracking-[0.12em] sm:tracking-[0.18em] text-[#C5A065] leading-relaxed">
-                        {row.label}
-                      </dt>
-                      <dd className="text-sm md:text-base text-[#E5E5E5] leading-relaxed break-words min-w-0">
-                        {row.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
               </div>
             </motion.div>
           </div>
